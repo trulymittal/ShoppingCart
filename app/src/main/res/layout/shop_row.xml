@@ -7,12 +7,19 @@
             name="product"
             type="com.example.shoppingcart.models.Product" />
 
+        <variable
+            name="shopInterface"
+            type="com.example.shoppingcart.adapters.ShopListAdapter.ShopInterface" />
+
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> shopInterface.onItemClick(product)}"
+        >
 
         <ImageView
             android:id="@+id/productImageView"
