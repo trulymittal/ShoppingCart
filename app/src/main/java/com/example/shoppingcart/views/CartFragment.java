@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.shoppingcart.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CartFragment extends Fragment {
 
     public CartFragment() {
