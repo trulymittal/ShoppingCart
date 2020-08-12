@@ -6,4 +6,5 @@
     <color name="textPrimary">#212121</color>
     <color name="textSecondary">#757575</color>
     <color name="red">#ff0000</color>
+    <color name="colorWhite">#fff</color>
 </resources>

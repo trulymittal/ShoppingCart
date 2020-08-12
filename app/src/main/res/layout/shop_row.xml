@@ -54,7 +54,7 @@
             android:layout_gravity="center"
             android:text="@{product.available ? `Available` : `Out of stock`}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@{product.available ? @color/textSecondary : @color/red}" />
 
         <Button
             android:id="@+id/addToCartButton"
@@ -63,6 +63,7 @@
             android:text="Add to cart"
             android:layout_gravity="center"
             android:enabled="@{product.available}"
+            android:onClick="@{() -> shopInterface.addItem(product)}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             style="@style/Widget.MaterialComponents.Button.TextButton" />
     </LinearLayout>

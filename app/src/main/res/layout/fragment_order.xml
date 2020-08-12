@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.OrderFragment">
+    tools:context=".views.OrderFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks for your order."
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        />
 
-</FrameLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
+
+    <Button
+        android:id="@+id/continueShoppingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:text="Continue Shopping"
+        />
+
+</LinearLayout>

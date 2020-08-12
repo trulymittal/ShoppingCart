@@ -95,7 +95,9 @@
                 android:layout_height="wrap_content"
                 android:enabled="@{shopViewModel.product.available}"
                 android:text="Add to cart"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:onClick="@{() -> shopViewModel.addItemToCart(shopViewModel.product)}"
+                />
         </LinearLayout>
 
     </ScrollView>

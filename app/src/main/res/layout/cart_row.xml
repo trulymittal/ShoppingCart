@@ -1,86 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/productImageView"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:padding="8dp"
-        android:src="@drawable/iphone11"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+    <data>
+        <variable
+            name="cartItem"
+            type="com.example.shoppingcart.models.CartItem" />
 
+    </data>
 
-    <TextView
-        android:id="@+id/productNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/productImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="iPhone 11"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Qty"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/productNameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
-
-    <Spinner
-        android:id="@+id/quantitySpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        android:entries="@array/quantity_string_array"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        />
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="8dp"
+            android:src="@drawable/iphone11"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:productImage="@{cartItem.product.imageUrl}"
+            />
 
 
-    <ImageButton
-        android:id="@+id/deleteProductButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/quantitySpinner"
-        app:layout_constraintStart_toEndOf="@+id/quantitySpinner"
-        app:layout_constraintTop_toTopOf="@+id/quantitySpinner"
-        app:srcCompat="@drawable/ic_baseline_delete_24"
-        />
+        <TextView
+            android:id="@+id/productNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/productImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{cartItem.product.name}" />
 
-    <TextView
-        android:id="@+id/productTotalPriceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:text="1234"
-        />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qty"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/productNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
+
+        <Spinner
+            android:id="@+id/quantitySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            android:entries="@array/quantity_string_array"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:setVal="@{cartItem.quantity}"
+            />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/deleteProductButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/quantitySpinner"
+            app:layout_constraintStart_toEndOf="@+id/quantitySpinner"
+            app:layout_constraintTop_toTopOf="@+id/quantitySpinner"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+        <TextView
+            android:id="@+id/productTotalPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:text="@{String.valueOf(cartItem.product.price * cartItem.quantity)}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 

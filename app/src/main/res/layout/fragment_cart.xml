@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/cart_row"
+            tools:itemCount="2"
             />
 
         <Space
